@@ -1,37 +1,37 @@
-# Comment Pruning Skill
+# Codebase Prose Pruning Skill
 
-An [Agent Skills](https://agentskills.io/) workflow for removing excessive comments and duplicated documentation without changing program behavior.
+An [Agent Skills](https://agentskills.io/) workflow for simplifying excessive comments and codebase documentation without changing program behavior or losing constraints.
 
-The skill makes an agent review comments rather than blindly strip them. It preserves hidden invariants, compatibility constraints, safety notes, protocol synchronization, required attribution, and other knowledge the code cannot express.
+The skill reviews prose rather than blindly stripping it. It removes narration, duplication, implementation inventories, chronology, and rhetorical buildup while preserving hidden invariants, decisions, evidence, compatibility constraints, safety notes, protocol synchronization, and required attribution.
 
 ## Install
 
 ### Pi
 
 ```bash
-git clone https://github.com/frankychung/comment-pruning-skill.git \
-  ~/.agents/skills/comment-pruning
+git clone https://github.com/frankychung/codebase-prose-pruning-skill.git \
+  ~/.agents/skills/codebase-prose-pruning
 ```
 
 Pi discovers skills under `~/.agents/skills/` when it starts. Restart Pi after installation, then invoke:
 
 ```text
-/skill:comment-pruning clean <path> and its related documentation
+/skill:codebase-prose-pruning simplify <path> and its related documentation
 ```
 
-The skill may also load automatically when you ask Pi to remove, reduce, audit, or simplify comments.
+The skill may also load automatically when you ask Pi to prune or simplify comments, agent instructions, context documents, concept guides, ADRs, or other codebase prose.
 
 ### Other Agent Skills-compatible tools
 
-Clone this repository into the tool's skills directory under the name `comment-pruning`. Consult that tool's documentation for its discovery paths and invocation syntax.
+Clone this repository into the tool's skills directory under the name `codebase-prose-pruning`. Consult that tool's documentation for its discovery paths and invocation syntax.
 
 ## What it does
 
 1. Reads repository instructions and fixes the cleanup boundary.
 2. Separates authored files from generated, vendored, licensed, and binary files.
 3. Protects existing uncommitted work.
-4. Establishes one source of truth across code comments and documentation.
-5. Applies a retention rubric to every authored file in scope.
+4. Establishes one source of truth across comments and documentation.
+5. Applies separate retention rubrics to source comments and documents.
 6. Verifies that non-comment code did not change.
 7. Runs repository-specific formatting, tests, linting, asset checks, and link checks.
 8. Reports coverage, retained constraints, and before/after measurements.

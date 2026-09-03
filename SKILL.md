@@ -1,11 +1,11 @@
 ---
-name: comment-pruning
-description: Prune excessive comments and duplicated documentation without changing behavior. Use when asked to remove, reduce, simplify, audit, or clean up comments, doc comments, code narration, or overly verbose codebase documentation.
+name: codebase-prose-pruning
+description: Prune and simplify excessive codebase prose without changing behavior or losing constraints. Use for comments, doc comments, agent instructions, context documents, concept guides, ADRs, duplicated rationale, or verbose codebase documentation.
 ---
 
-# Comment Pruning
+# Codebase Prose Pruning
 
-Make code easier to read by removing prose that ordinary local reading can recover. Preserve knowledge the code cannot express.
+Make code and documentation easier to read. Remove prose that ordinary local reading can recover while preserving knowledge the code cannot express.
 
 ## Process
 
@@ -14,7 +14,7 @@ Make code easier to read by removing prose that ordinary local reading can recov
 Read repository instructions first. Resolve these before editing:
 
 - target paths and languages;
-- whether tests, examples, assets, and related documentation are included;
+- which source comments, tests, examples, assets, and documentation are included;
 - authored versus generated, vendored, licensed, and binary files;
 - the repository's formatting, test, lint, and documentation gates.
 
@@ -50,9 +50,9 @@ Use the result to plan coverage, not to decide what survives. Keep a temporary r
 
 Never remove comments with a blanket regex or line filter. Comment syntax may occur inside Rust raw strings, JavaScript template literals, fixtures, generated output, or other runtime data.
 
-### 4. Apply the retention test
+### 4. Prune comments and simplify documentation
 
-Keep a comment only when it conveys at least one of:
+Keep a source comment only when it conveys at least one of:
 
 - a hidden invariant or externally enforced contract;
 - a surprising reason the obvious implementation is wrong;
@@ -74,11 +74,19 @@ Remove:
 
 Rewrite surviving comments to the shortest statement that preserves the constraint. Attach ADR or issue references only to a surviving constraint. Sparse section headings may remain in long flat CSS or JavaScript files when they provide real navigation.
 
-Apply the same pruning discipline to related documentation when it is in scope. Preserve an ADR's decision, genuine alternatives, decisive evidence, and consequences; remove implementation tours and repetition.
+Documentation keeps:
+
+- its unique purpose and canonical vocabulary;
+- actionable agent instructions and landmines;
+- architecture needed to navigate the code;
+- an ADR's decision, genuine alternatives, decisive evidence, and consequences;
+- operational constraints that apply across files.
+
+Remove duplicated explanations, implementation inventories, chronology, rhetorical buildup, cheap repository lookups, repeated examples, and detail below the document's information tier. Prefer concise pointers over copied rationale. Preserve meaning while shortening sentences and structure.
 
 Read [language traps](references/language-traps.md) for every language in scope.
 
-**Complete when:** every authored file in the checklist has been read and every surviving comment passes the retention test.
+**Complete when:** every authored source and documentation file in the checklist has been read, every surviving comment passes the retention test, and every document contains only material appropriate to its role.
 
 ### 5. Prove behavior stayed fixed
 
@@ -96,9 +104,9 @@ Report:
 
 - paths and file classes reviewed;
 - changed and intentionally unchanged areas;
-- retained comment categories;
+- retained comment and documentation categories;
 - before/after comment counts as evidence, never as a target;
-- documentation reductions when applicable;
+- documentation reductions;
 - each validation command and result;
 - any non-comment difference and why it is safe.
 

@@ -16,6 +16,16 @@ Consult only the languages present in the target.
 - Preserve directives such as `@ts-check`, source-map links, coverage controls, bundler hints, and lint controls unless their effect is intentionally removed.
 - A concise comment is justified when browser event ordering or silent morph behavior cannot be inferred locally.
 
+## ReScript
+
+- `/** ... */` documents the following declaration; `/*** ... */` is standalone documentation. Inspect its API role before pruning, especially in `.resi` files.
+- Comment markers inside strings, multiline or tagged templates, and `%raw` or `%%raw` JavaScript are runtime data or executable source.
+- `@...` and `@@...` attributes and `%...` and `%%...` extension points are compiler-significant code, not comments.
+- `.resi` files define public module signatures and may be the API's documentation surface.
+- Compiled JavaScript and genType `*.gen.tsx` files are generated output. Confirm provenance and configured suffixes, then edit the ReScript source or configuration.
+
+Sources: [overview](https://rescript-lang.org/docs/manual/overview/), [attributes](https://rescript-lang.org/docs/manual/attribute/), [raw JavaScript](https://rescript-lang.org/docs/manual/embed-raw-javascript/), [modules and signatures](https://rescript-lang.org/docs/manual/module/), and [TypeScript integration](https://rescript-lang.org/docs/manual/typescript-integration/).
+
 ## CSS
 
 - Keep comments explaining compatibility hacks whose declarations otherwise look removable.

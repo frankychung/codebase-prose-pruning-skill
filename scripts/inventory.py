@@ -33,6 +33,8 @@ TEXT_EXTENSIONS = {
     ".mjs",
     ".py",
     ".rb",
+    ".res",
+    ".resi",
     ".rs",
     ".sh",
     ".svg",

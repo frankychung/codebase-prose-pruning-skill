@@ -6,6 +6,22 @@ The skill reviews prose rather than blindly stripping it. It removes narration, 
 
 ## Install
 
+### Claude Code
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/frankychung/codebase-prose-pruning-skill.git \
+  ~/.claude/skills/codebase-prose-pruning
+```
+
+Start or restart Claude Code, then invoke:
+
+```text
+/codebase-prose-pruning simplify <path> and its related documentation
+```
+
+Claude may also load the skill automatically when you ask it to prune or simplify codebase prose.
+
 ### Pi
 
 ```bash

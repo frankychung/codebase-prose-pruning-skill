@@ -52,6 +52,8 @@ Never remove comments with a blanket regex or line filter. Comment syntax may oc
 
 ### 4. Prune comments and simplify documentation
 
+Before rewriting, classify each independently meaningful prose unit—a source comment, documentation paragraph, list item, or section—as keep or delete. Make the decision using adjacent code and cheap direct navigation to a symbol definition, type, interface, test name, or referenced service. Delete prose whose meaning that reading recovers; shortening does not justify retaining it.
+
 Keep a source comment only when it conveys at least one of:
 
 - a hidden invariant or externally enforced contract;
@@ -72,7 +74,7 @@ Remove:
 - duplicate explanations already authoritative elsewhere;
 - commented-out code and stale TODOs.
 
-Rewrite surviving comments to the shortest statement that preserves the constraint. Attach ADR or issue references only to a surviving constraint. Sparse section headings may remain in long flat CSS or JavaScript files when they provide real navigation.
+Rewrite surviving comments to the shortest statement that preserves the constraint. Write surviving prose in canonical domain vocabulary or ordinary role language rather than inheriting incidental identifier names; repeat an identifier only when identifying that symbol matters. Attach ADR or issue references only to a surviving constraint. Sparse section headings may remain in long flat CSS or JavaScript files when they provide real navigation.
 
 Documentation keeps:
 
@@ -86,7 +88,7 @@ Remove duplicated explanations, implementation inventories, chronology, rhetoric
 
 Read [language traps](references/language-traps.md) for every language in scope.
 
-**Complete when:** every authored source and documentation file in the checklist has been read, every surviving comment passes the retention test, and every document contains only material appropriate to its role.
+**Complete when:** every authored source and documentation file in the checklist has been read, every surviving prose unit passes the retention test, and every document contains only material appropriate to its role.
 
 ### 5. Prove behavior stayed fixed
 
